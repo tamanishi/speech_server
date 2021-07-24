@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>speak</title>
+    <title>speech</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -10,8 +10,8 @@
       function speak() {
         const text = document.getElementById('text').value;
         const speaker = $('#speaker input:radio:checked').val();
-        const speed = document .getElementById('speed').value;
-        const pitch = document .getElementById('pitch').value;
+        const speed = document.getElementById('speed').value;
+        const pitch = document.getElementById('pitch').value;
         const emotion = $('#emotion input:radio:checked').val();
         const emotion_level = $('#emotion_level input:radio:checked').val();
         const obj = {
@@ -100,7 +100,7 @@
             <td>
               <div class="btn-group btn-group-toggle" data-toggle="buttons" id="emotion">
                 <label class="btn btn-light active">
-                  <input type="radio" name="emotions" value="0" autocomplete="off" checked>none
+                  <input type="radio" name="emotions" value="" autocomplete="off" checked>none
                 </label>
                 <label class="btn btn-warning">
                   <input type="radio" name="emotions" value="happiness" autocomplete="off">happiness
@@ -120,7 +120,7 @@
             <td>
               <div class="btn-group btn-group-toggle" data-toggle="buttons" id="emotion_level">
                 <label class="btn btn-light active">
-                  <input type="radio" name="emtion_levels" value="0" autocomplete="off" checked>none
+                  <input type="radio" name="emtion_levels" value="" autocomplete="off" checked>none
                 </label>
                 <label class="btn btn-light">
                   <input type="radio" name="emtion_levels" value="1" autocomplete="off">1
