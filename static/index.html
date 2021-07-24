@@ -3,17 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <title>speech</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script lang="javascript">
       function speak() {
         const text = document.getElementById('text').value;
-        const speaker = $('#speaker input:radio:checked').val();
+        const speaker = document.querySelector('input[name="speaker"]:checked').value;
         const speed = document.getElementById('speed').value;
         const pitch = document.getElementById('pitch').value;
-        const emotion = $('#emotion input:radio:checked').val();
-        const emotion_level = $('#emotion_level input:radio:checked').val();
+        const emotion = document.querySelector('input[name="emotion"]:checked').value;
+        const emotion_level = document.querySelector('input[name="emotion_level"]:checked').value;
         const obj = {
           text: text,
           speaker: speaker,
@@ -61,56 +59,54 @@
           <tr>
             <th scope='row'><h5>speaker</h5></th>
             <td>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons" id="speaker">
-                <label class="btn btn-light active">
-                  <input type="radio" name="speakers" value="show" autocomplete="off" checked>show
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="speakers" value="haruka" autocomplete="off">haruka
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="speakers" value="hikari" autocomplete="off">hikari
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="speakers" value="takeru" autocomplete="off">takeru
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="speakers" value="santa" autocomplete="off">santa
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="speakers" value="bear" autocomplete="off">bear
-                </label>
+              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="speaker" id="speaker_show" value="show" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="speaker_show">show</label>
+              
+                <input type="radio" class="btn-check" name="speaker" id="speaker_haruka" value="haruka" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speaker_haruka">haruka</label>
+              
+                <input type="radio" class="btn-check" name="speaker" id="speaker_hikari" value="hikari" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speaker_hikari">hikari</label>
+
+                <input type="radio" class="btn-check" name="speaker" id="speaker_takeru" value="takeru" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speaker_takeru">takeru</label>
+
+                <input type="radio" class="btn-check" name="speaker" id="speaker_santa" value="santa" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speaker_santa">santa</label>
+
+                <input type="radio" class="btn-check" name="speaker" id="speaker_bear" value="bear" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speaker_bear">bear</label>
               </div>
             </td>
           </tr>
           <tr>
             <th scope='row'><h5>speed</h5></th>
             <td>
-                <input type='range' class='custom-range w-75' value='100' min='50' max='200' step='10' id='speed'>
+                <input type='range' class='form-range w-75' value='100' min='50' max='200' step='10' id='speed'>
             </td>
           </tr>
           <tr>
             <th scope='row'><h5>pitch</h5></th>
             <td>
-              <input type='range' class='custom-range w-75' value='100' min='50' max='200' step='10' id='pitch'>
+              <input type='range' class='form-range w-75' value='100' min='50' max='200' step='10' id='pitch'>
             </td>
           </tr>
           <tr>
             <th scope='row'><h5>emotion</h5></th>
             <td>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons" id="emotion">
-                <label class="btn btn-light active">
-                  <input type="radio" name="emotions" value="" autocomplete="off" checked>none
-                </label>
-                <label class="btn btn-warning">
-                  <input type="radio" name="emotions" value="happiness" autocomplete="off">happiness
-                </label>
-                <label class="btn btn-danger">
-                  <input type="radio" name="emotions" value="anger" autocomplete="off">anger
-                </label>
-                <label class="btn btn-info">
-                  <input type="radio" name="emotions" value="sadness" autocomplete="off">sadness
-                </label>
+              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="emotion" id="emotion_none" value="" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="emotion_none">none</label>
+              
+                <input type="radio" class="btn-check" name="emotion" id="emotion_happiness" value="happiness" autocomplete="off">
+                <label class="btn btn-outline-warning" for="emotion_happiness">happiness</label>
+              
+                <input type="radio" class="btn-check" name="emotion" id="emotion_anger" value="anger" autocomplete="off">
+                <label class="btn btn-outline-danger" for="emotion_anger">anger</label>
+
+                <input type="radio" class="btn-check" name="emotion" id="emotion_sadness" value="sadness" autocomplete="off">
+                <label class="btn btn-outline-info" for="emotion_sadness">sadness</label>
               </div>
               <span class='desc'>valid for the following speakers. haruka, hikari, takeru, santa and bear.</span>
             </td>
@@ -118,22 +114,21 @@
           <tr>
             <th scope='row'><h5>emotion level</h5></th>
             <td>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons" id="emotion_level">
-                <label class="btn btn-light active">
-                  <input type="radio" name="emtion_levels" value="" autocomplete="off" checked>none
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="emtion_levels" value="1" autocomplete="off">1
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="emtion_levels" value="2" autocomplete="off">2
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="emtion_levels" value="3" autocomplete="off">3
-                </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="emtion_levels" value="4" autocomplete="off">4
-                </label>
+              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="emotion_level" id="emotion_level_show" value="" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="emotion_level_noene">none</label>
+              
+                <input type="radio" class="btn-check" name="emotion_level" id="emotion_level_1" value="1" autocomplete="off">
+                <label class="btn btn-outline-primary" for="emotion_level_1">1</label>
+              
+                <input type="radio" class="btn-check" name="emotion_level" id="emotion_level_2" value="2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="emotion_level_2">2</label>
+
+                <input type="radio" class="btn-check" name="emotion_level" id="emotion_level_3" value="3" autocomplete="off">
+                <label class="btn btn-outline-primary" for="emotion_level_3">3</label>
+
+                <input type="radio" class="btn-check" name="emotion_level" id="emotion_level_4" value="4" autocomplete="off">
+                <label class="btn btn-outline-primary" for="emotion_level_4">4</label>
               </div>
               <span class='desc'>valid for the following speakers. haruka, hikari, takeru, santa and bear.</span>
             </td>
